@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int d,m,y;
+	cin>>d>>m>>y;
+	if(d>0 && d<28)
+	d+=1;
+	if(d==28)
+	{
+		if(m==2)
+		{
+			if((y%400==0)||(y%100!=0 || y%4==0))
+			{
+				d=29;
+			}
+			else
+			{
+				d=1;
+				m=3;
+			}
+		}
+		else
+		d+=1;
+	}
+	if(d==29)
+	{
+		if(m==2)
+		{
+			d=1;
+			m=3;
+		}
+		else
+		d++;
+		cout<<d<<m<<y<<endl;
+	}
+	if(d==30)
+	{
+		if(m==1||m==3||m==5||m==7||m==8||m==10||m==12)
+		d+=1;
+		else
+		{
+			d=1;
+			m+=1;
+		}
+	}
+	if(d==31)
+	{
+		d=1;
+		if(m==12)
+		{
+			y+=1;
+			m=1;
+		}
+		else
+		m+=1;
+	}
+	if(d<10)
+	{
+		cout<<"0"<<d<<" ";
+	}
+	else
+	cout<<d<<" ";
+	if(m<10)
+	{
+		cout<<m<<" ";
+	}
+	else
+	cout<<m<<" ";
+	cout<<y;    
+	return 0;
+}
